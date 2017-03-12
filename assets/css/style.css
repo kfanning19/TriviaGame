@@ -1,0 +1,43 @@
+body{
+	text-align: center;
+	background: url("../images/background1.jpg")no-repeat center center fixed;
+	background-size: 100% 100%;
+}
+.page-header{
+	color: #fff;
+}
+.panel,
+.panel-default {
+	 background-color: rgba(245, 245, 245, 0.8);
+
+}
+#main{
+	height: 100%;
+	font-size: 20px;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	padding: 10%;
+	
+}
+/*.startScreen{
+	font-size: 24px;
+	padding-bottom: 10%;
+	padding-top:10%;
+}*/
+#start-button {
+	font-size: 24px;
+	width: 80%;
+}
+.stateQ{
+	font-size: 28px;
+	border-bottom: 1px solid;
+	border-color: #bbb;
+}
+#choice-button {
+	font-size: 22px;
+	width: 80%;
+	background-color: rgba(245, 245, 245, 0);
+}
+#choice-button:hover{
+	background-color: rgba(245, 245, 245, 0.75);
+}
