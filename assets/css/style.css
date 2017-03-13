@@ -9,7 +9,7 @@ body{
 }
 .panel,
 .panel-default {
-	 background-color: rgba(245, 245, 245, 0.8);
+	 background-color: rgba(245, 245, 245, 0.85);
 
 }
 #main{
@@ -24,6 +24,10 @@ body{
 #start-button {
 	font-size: 24px;
 	width: 80%;
+}
+#startscreen{
+	padding: 10px;
+	font-weight: 22px;
 }
 /*Question screen*/
 #time {
@@ -41,8 +45,15 @@ body{
 	background-color: rgba(245, 245, 245, 0);
 }
 #choice-button:hover{
-	background-color: rgba(245, 245, 245, 0.8);
+	background-color: rgba(245, 245, 245, 0.85);
 }
+/*Answer Screen*/
 img{
-	width: 200px;
+	width: 150px;
+	margin: 20px;
 }
+#displayAnswer{
+	font-size: 24px;
+	font-weight: bolder;
+}
+
