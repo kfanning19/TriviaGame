@@ -154,14 +154,14 @@ function checkGuess (){
 function gameOver(){
 	
 	if(currentQ < 9){
-		setTimeout(questionAppear, 5000);;
+		setTimeout(questionAppear, 7000);;
 	} else {
 		setTimeout(function(){
 		$main.empty();
 		$main.append("<h1> Game Over! </h1>");
 		$main.append("<p> You got " + correct + "/10 correct </p>");
 		$main.append("<button class='btn btn-primary' id='start-button'>Restart</button>");
-		}, 5000);
+		}, 7000);
 	};
 };
 // Event Listeners for button clicks
