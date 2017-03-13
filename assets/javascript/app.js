@@ -68,7 +68,7 @@ var questionsObj = [
 		question:"Which emperor was known to use emetics in order to eat more?",
 		choices:["Severus Alexander", "Lucius Verus", "Vitellius", "Pertinax"],
 		answer:"Vitellius",
-		funFact:"He was known to have delicacies contstantly brought to him on the battlefield.",
+		funFact:"He was known to have delicacies constantly brought to him on the battlefield.",
 		img: "assets/images/vitellius.jpg",
 	}
 ];
@@ -89,7 +89,7 @@ function decrease(){
 		clockStop();
 		$main.empty();
 		$main.append("<p id = 'displayAnswer'>Oops! You ran out of time. It was " + questionsObj[currentQ].answer + "! </p>");
-		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>")
+		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>");
 		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
 		currentQ ++;
 		gameOver();
@@ -132,7 +132,7 @@ function checkGuess (){
 		clockStop();
 		$main.empty();
 		$main.append("<p id = 'displayAnswer'>Correct! It was " + questionsObj[currentQ].answer + "! </p>");
-		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>")
+		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>");
 		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
 		currentQ ++;
 		correct ++;
@@ -143,7 +143,7 @@ function checkGuess (){
 		clockStop();
 		$main.empty();
 		$main.append("<p id = 'displayAnswer'>Sorry! It was " + questionsObj[currentQ].answer + "! </p>");
-		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>")
+		$main.append("<img src='"+ questionsObj[currentQ].img  + "' alt = '"+ questionsObj[currentQ].answer  + "'/>");
 		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
 		currentQ ++;
 		gameOver();
