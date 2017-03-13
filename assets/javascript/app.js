@@ -153,7 +153,7 @@ function checkGuess (){
 // End the Game and restart
 function gameOver(){
 	
-	if(currentQ < 9){
+	if(currentQ <= 9){
 		setTimeout(questionAppear, 7000);;
 	} else {
 		setTimeout(function(){
