@@ -1,3 +1,4 @@
+/*general*/
 body{
 	text-align: center;
 	background: url("../images/background1.jpg")no-repeat center center fixed;
@@ -16,28 +17,32 @@ body{
 	font-size: 20px;
 	margin-bottom: 5%;
 	margin-top: 5%;
-	padding: 10%;
-	
+	padding: 5%;	
 }
-/*.startScreen{
-	font-size: 24px;
-	padding-bottom: 10%;
-	padding-top:10%;
-}*/
+
+/*Start Screen*/
 #start-button {
 	font-size: 24px;
 	width: 80%;
 }
+/*Question screen*/
+#time {
+	text-align: right;
+	margin-bottom: 10px;
+}
 .stateQ{
-	font-size: 28px;
+	font-size: 24px;
 	border-bottom: 1px solid;
 	border-color: #bbb;
 }
 #choice-button {
-	font-size: 22px;
+	font-size: 20px;
 	width: 80%;
 	background-color: rgba(245, 245, 245, 0);
 }
 #choice-button:hover{
-	background-color: rgba(245, 245, 245, 0.75);
+	background-color: rgba(245, 245, 245, 0.8);
+}
+img{
+	width: 200px;
 }

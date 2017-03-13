@@ -2,7 +2,7 @@
 $(document).ready(function(){
 var questionsObj = [
 	{
-		question:"Which Emperor tried to elect his horse to the senate?",
+		question:"Which Emperor tried to elect his horse consul?",
 		choices: ["Caligula", "Nero", "Commodus", "Constantine"],
 		answer: "Caligula",
 		funFact: "Caligula means 'little boots' in Latin. Unsurprisingly, he didn't refer to himself that way.",
@@ -17,7 +17,7 @@ var questionsObj = [
 		question:"Which Roman Emperor celebrated buying the office by eating his predecessor's last meal?",
 		choices:["Didius Julianus", "Septimius Severus", "Antoninus Pius", "Agrippa"],
 		answer:"Didius Julianus",
-		funFact:"He paid 25,000 sesterces to every soldier to be declared Emperor. He was killed 66 days later."
+		funFact:"He paid 25,000 sesterces to every soldier to be declared Emperor. They took his money, then killed him 66 days later."
 	},
 	{
 		question:"Which of Nero's wives was actually a man whom Nero made dress as a woman?",
@@ -33,15 +33,15 @@ var questionsObj = [
 	},
 	{
 		question:"Which Roman Emperor was known to have parties to look at ruptured hernias?",
-		choices:["Nero", "Claudius", "Justinian", "Elagalbalus"],
-		answer:"Elagalbalus",
-		funFact:"Some people speculate that Elagalbalus was transgender because he occasionally referred to himself as a 'lady' and is rumored to have asked for reassignment surgery.",
+		choices:["Nero", "Claudius", "Justinian", "Elagabalus"],
+		answer:"Elagabalus",
+		funFact:"Some people speculate that Elagabalus was transgender because he occasionally referred to himself as a 'lady' and is rumored to have asked for reassignment surgery.",
 	},
 	{
-		question:"question",
-		choices:["a", "b", "c", "d"],
-		answer:"a",
-		funFact: "fact",
+		question:"Which emperor had his soldiers collect seashells and declared that he had conquered the sea?",
+		choices:["Titus", "Vespasian", "Caligula", "Tiberius"],
+		answer:"Caligula",
+		funFact: "He then proceeded to hold a triumph in Rome, where the soldiers displayed their 'treasure' of seashells.",
 	},
 	{
 		question:"As a boy, which future emperor ordered his servant thrown in a fire because his bath was too hot?",
@@ -63,21 +63,41 @@ var questionsObj = [
 	}
 ];
 var correct = 0;
+var currentQ = 0;
+var timer = 20;
+var answerScreen;
 
 // cache variables
 var $main = $("#main");
-var $button = $("<button>");
-var $div = $("<div>");
-var currentQ = 0;
 
 // functions
-for(var i = 0; i < questionsObj.length; i++){
-console.log(questionsObj[i].question)
-}
 
+// Timers
+function decrease(){
+	timer -= 1;
+	if (timer <= 0){
+		clockStop();
+		$main.empty();
+		$main.append("<p>Oops! You ran out of time. It was " + questionsObj[currentQ].answer + "! </p>");
+		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
+		currentQ ++;
+		gameOver();
+	}
+	$("#time").html(timer + " sec");	
+};
+function clock(){
+	answerScreen = setInterval(decrease, 1000)
+};
+function clockStop(){
+	clearInterval(answerScreen);
+
+};
 //Render Questions
 function questionAppear(){
+	timer = 20;
 	$main.empty();
+	clock();
+	$main.append("<p id = 'time'>" + timer + " sec</p>");
 	$main.append("<div class='stateQ'>");
 	$(".stateQ").append("<p>" + questionsObj[currentQ].question + "</p>");
 	$main.append("<div class = 'choices'>");
@@ -91,47 +111,47 @@ function start(){
         $main.empty();
         correct = 0;
         currentQ = 0;
+        timer = 20;
         questionAppear();
         
 };
-// Start and Restart Button
-// $("#start-button").on("click", function(event) {
-//         start();
-// }); 
-
+// Check to see if the guess clicked matches the answer
 function checkGuess (){
-	if ($(this).val() === questionsObj[currentQ].answer){
+	if ($(this).val() === questionsObj[currentQ].answer && timer > 0){
+		clockStop();
 		$main.empty();
 		$main.append("<p>Correct! It was " + questionsObj[currentQ].answer + "! </p>");
-		$main.append("<p> Fun Fact: </p>");
-		$main.append("<p>" + questionsObj[currentQ].funFact + "</p>");
+		// $main.append("<p> Fun Fact: </p>");
+		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
 		currentQ ++;
 		correct ++;
 		gameOver();
 
-	} else{
+	} 
+	else{
+		clockStop();
 		$main.empty();
 		$main.append("<p>Sorry! It was " + questionsObj[currentQ].answer + "! </p>");
-		$main.append("<p> Fun Fact: </p>");
-		$main.append("<p>" + questionsObj[currentQ].funFact + "</p>");
+		// $main.append("<p> Fun Fact: </p>");
+		$main.append("<p><strong>Fun Fact: </strong>" + questionsObj[currentQ].funFact + "</p>");
 		currentQ ++;
 		gameOver();
-
 	}
 };
 
 // End the Game and restart
 function gameOver(){
+	
 	if(currentQ <= 9){
-		questionAppear();
+		setTimeout(questionAppear, 4000);;
 	} else {
-	$main.empty();
-	$main.append("<h1> Game Over! </h1>")
-	$main.append("<p> You got " + correct + "/10 correct </p>")
-	$main.append("<button class='btn btn-primary' id='start-button'>Restart</button>")
+		$main.empty();
+		$main.append("<h1> Game Over! </h1>");
+		$main.append("<p> You got " + correct + "/10 correct </p>");
+		$main.append("<button class='btn btn-primary' id='start-button'>Restart</button>");
 	}
 }
-
+// Event Listeners for button clicks
 $(document).on("click", "#choice-button", checkGuess);
 $(document).on("click", "#start-button", start);
 
