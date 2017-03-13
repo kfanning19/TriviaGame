@@ -34,7 +34,7 @@ var questionsObj = [
 		choices:["Constantine", "Diocletian", "Domitian", "Augustus"],
 		answer:"Diocletian",
 		funFact: "When civil war threatened and his supporters asked him to come back, he treated them to a long lecture on cabbages.",
-		img: "assets/images/Diocletian.jpg",
+		img: "assets/images/diocletian.jpg",
 	},
 	{
 		question:"Which Roman Emperor was known to have parties to look at ruptured hernias?",
@@ -51,17 +51,17 @@ var questionsObj = [
 		img: "assets/images/caligula.jpg",
 	},
 	{
-		question:"As a boy, which future emperor ordered his servant thrown in a fire because his bath was too hot?",
+		question:"As a boy, which future emperor ordered his servant thrown in a furnace because his bath was too hot?",
 		choices:["Commodus", "Severus Alexander", "Galba", "Domitian"],
 		answer:"Commodus",
-		funFact: "The other servants had to throw a sheep skin into the fire and tell him it was the servant to appease him.",
+		funFact: "The other servants had to throw a sheep skin into the furnace and tell him it was the servant to appease him.",
 		img: "assets/images/commodus.jpg",
 	},
 	{
 		question:"Whose last words were 'Oh dear, I think I am becoming a god?",
 		choices:["Otho", "Vespasian", "Trajan", "Titus"],
 		answer:"Vespasian",
-		funFact: "Vespasian was known for being brutal but fair. His son, Domitian, was just known for being brutal.",
+		funFact: "Early in his political career, Vesapasian was covered in mud by Caligula for failing to keep the streets clean.",
 		img: "assets/images/vespasian.jpg",
 	},
 	{
@@ -94,7 +94,7 @@ function decrease(){
 		currentQ ++;
 		gameOver();
 	}
-	$("#time").html(timer + " sec");	
+	$("#time").html("Time Remaining: " + timer + " sec");	
 };
 function clock(){
 	answerScreen = setInterval(decrease, 1000)
@@ -108,7 +108,7 @@ function questionAppear(){
 	timer = 20;
 	$main.empty();
 	clock();
-	$main.append("<p id = 'time'>" + timer + " sec</p>");
+	$main.append("<p id = 'time'>Time Remaining: " + timer + " sec</p>");
 	$main.append("<div class='stateQ'>");
 	$(".stateQ").append("<p>" + questionsObj[currentQ].question + "</p>");
 	$main.append("<div class = 'choices'>");
@@ -154,14 +154,14 @@ function checkGuess (){
 function gameOver(){
 	
 	if(currentQ < 9){
-		setTimeout(questionAppear, 4000);;
+		setTimeout(questionAppear, 5000);;
 	} else {
 		setTimeout(function(){
 		$main.empty();
 		$main.append("<h1> Game Over! </h1>");
 		$main.append("<p> You got " + correct + "/10 correct </p>");
 		$main.append("<button class='btn btn-primary' id='start-button'>Restart</button>");
-		}, 4000);
+		}, 5000);
 	};
 };
 // Event Listeners for button clicks

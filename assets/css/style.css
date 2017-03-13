@@ -33,6 +33,7 @@ body{
 #time {
 	text-align: right;
 	margin-bottom: 10px;
+	font-size: 16px;
 }
 .stateQ{
 	font-size: 24px;
